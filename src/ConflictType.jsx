@@ -6,6 +6,8 @@ const CONFLICTS = [
     briefing:"A narrow peninsula of rock, barely 7km\u00B2, juts from the southern coast of a large nation. For three centuries, it's been governed by a maritime empire across the sea \u2014 ceded by treaty after a war. The local population overwhelmingly votes to remain under foreign rule. The neighboring nation insists the territory is a colonial holdover violating its territorial integrity.",
     sideA:{label:"The Valdric Crown",claim:"The inhabitants voted 98% to stay with us. Self-determination is paramount. We've governed here 300 years under a binding treaty.",values:["self-determination","democratic-will","treaty-law"]},
     sideB:{label:"The Republic of Therenos",claim:"A colonial relic on our coast. No treaty signed under duress centuries ago overrides geography and history. Decolonization demands its return.",values:["territorial-integrity","anti-colonialism","historical-continuity"]},
+    eli12:"There's a tiny piece of land stuck on one country's coast, but a different country far away has been running it for 300 years because they won a war. Almost everyone living there wants to stay with the faraway country. But the country it's literally attached to says: 'That's our land, you took it, give it back.' So who decides \u2014 the people who live there, or geography?",
+    eli6:"Imagine your neighbor's treehouse is in YOUR backyard. They built it there a long time ago and their kids love it. But it's still your yard. Who gets the treehouse?",
     reveal:"Gibraltar \u2014 Britain vs Spain since 1713.",
     nuance:"Democratic self-determination vs anti-colonial territorial claims. Does a 98% vote override the principle that colonialism is inherently illegitimate?"
   },
@@ -14,6 +16,8 @@ const CONFLICTS = [
     briefing:"A mountainous valley at the junction of three nuclear powers. When colonial rulers departed, the local prince hesitated to join either new nation. Tribal fighters invaded; he signed accession documents with one nation for military aid. The other claims the population is culturally aligned with them. Decades of insurgency and a fortified line of control followed.",
     sideA:{label:"The Suryapur Union",claim:"The ruler legally acceded to us. The instrument of accession is binding under international law. Our constitution integrates this as sovereign territory.",values:["legal-precedent","constitutional-order","institutional-process"]},
     sideB:{label:"The Republic of Qamaristan",claim:"The population is overwhelmingly our faith and culture. The accession was coerced. UN resolutions called for a plebiscite never held. Let the people choose.",values:["self-determination","cultural-identity","UN-mandates"]},
+    eli12:"When a big empire left, a local prince had to pick which new country to join. He stalled, then fighters from one country invaded, so he signed up with the other country for protection. But most people in the valley share the same religion as the country he rejected. Now both countries (with nukes!) claim it, and nobody's asked the actual people what they want.",
+    eli6:"Two kids both want the same seat at lunch. One says 'the teacher assigned it to me!' The other says 'but all my friends sit here!' They've been arguing about it for like 75 years and the teacher left.",
     reveal:"Kashmir \u2014 India vs Pakistan since 1947.",
     nuance:"Legal instruments vs popular will. Both sides invoke 'self-determination' but define it completely differently."
   },
@@ -22,6 +26,8 @@ const CONFLICTS = [
     briefing:"A province within a larger nation experienced decades of sectarian violence. One community identifies with the governing nation; the other with a neighboring country sharing their faith. The minority faced systemic discrimination. Paramilitaries on both sides carried out bombings. The government deployed soldiers, but allegations of state collusion deepened the rift.",
     sideA:{label:"The Aldermark Unionists",claim:"This province is constitutionally ours. The majority wishes to remain. We're defending against terrorism. Our identity is rooted here for centuries.",values:["democratic-majority","constitutional-order","cultural-tradition"]},
     sideB:{label:"The Eireann Nationalists",claim:"This border was drawn to guarantee a manufactured majority. We faced decades of discrimination. The partition itself was the original injustice. We seek reunification.",values:["anti-partition","civil-rights","historical-justice"]},
+    eli12:"When a country was split in two, the border was drawn so one group would always outnumber the other in this one region. The outnumbered group got treated terribly \u2014 couldn't get jobs, got harassed. Both sides had violent groups doing bombings. The government sent in soldiers but some soldiers secretly helped one side. Decades of fighting before a peace deal.",
+    eli6:"Imagine two groups of kids have to share a playground. But the bigger group made a rule that the smaller group can't use the good swings. The small group got really mad. Everyone started throwing sand. It took a LONG time for the teachers to sort it out.",
     reveal:"Northern Ireland \u2014 'The Troubles' (1968\u20131998).",
     nuance:"If a border was drawn specifically to create a demographic advantage, does 'majority rule' carry the same moral weight?"
   },
@@ -30,6 +36,8 @@ const CONFLICTS = [
     briefing:"A peninsula with a naval base was transferred between Soviet republics in 1954 as an administrative gesture. After the USSR collapsed, it landed in a newly independent nation. The population speaks the former empire's language. After a revolution toppled a friendly government, armed forces without insignia appeared. A referendum under military occupation returned 97% for rejoining the motherland.",
     sideA:{label:"The Voronsk Federation",claim:"These people are historically and culturally ours. The 1954 transfer was bureaucratic. The referendum reflects genuine will. We're protecting our people.",values:["ethnic-kinship","historical-claim","protection-of-diaspora"]},
     sideB:{label:"The Republic of Halychnyk",claim:"Borders can't be redrawn by military force and sham referendums. Every nation recognized these boundaries. If ethnic affinity justified annexation, no multi-ethnic state would be safe.",values:["international-law","territorial-integrity","anti-aggression"]},
+    eli12:"A peninsula got transferred between two regions when they were both part of the same big country. When that country fell apart, the peninsula ended up in a new nation. But most people there speak the old empire's language. When a revolution happened, soldiers with no name tags showed up, held a vote at gunpoint, and \u2014 surprise \u2014 97% voted to rejoin the empire. Every other country said that's not legal.",
+    eli6:"You gave your toy to your little brother years ago. Now you want it back. So you sneak into his room, take it, and say 'he said I could have it!' But everyone saw you just grab it.",
     reveal:"Crimea \u2014 annexed by Russia from Ukraine in 2014.",
     nuance:"Ethnic bonds as legitimate sovereignty basis vs international borders as inviolable. Your answer reveals whether you trust the post-WWII order."
   },
@@ -38,6 +46,8 @@ const CONFLICTS = [
     briefing:"A vast highland plateau governed by a theocratic monarchy had an ambiguous relationship with a neighboring empire. When that empire became a revolutionary republic, it marched soldiers in. The spiritual leader fled. The new government abolished serfdom and built infrastructure \u2014 but also destroyed monasteries, suppressed religion, and relocated settlers from the lowlands.",
     sideA:{label:"The Crimson Republic",claim:"We liberated these people from feudal theocratic oppression. Serfs freed, schools built, life expectancy doubled. Our sovereignty is morally justified by progress.",values:["historical-sovereignty","social-progress","anti-feudalism"]},
     sideB:{label:"The Highland Sangha (in exile)",claim:"We were an independent civilization. The invasion destroyed our culture. Material progress at gunpoint isn't liberation. We seek autonomy.",values:["cultural-preservation","self-governance","religious-freedom"]},
+    eli12:"A mountain kingdom run by monks got invaded by its giant neighbor. The invaders said 'we freed you from a backwards system' \u2014 and they did build schools and hospitals. But they also destroyed temples, banned religious practices, and moved tons of their own people in. The spiritual leader escaped and has been in exile ever since. Better healthcare, but your culture is being erased. Good deal?",
+    eli6:"Imagine a bigger kid takes over your clubhouse. They clean it up and add better snacks. But they also throw away all your drawings, change all the rules, and say it was always their clubhouse. The snacks are good though.",
     reveal:"Tibet \u2014 occupied by China in 1950.",
     nuance:"Material progress vs cultural sovereignty. If an occupier improves living standards but destroys identity \u2014 liberation or colonialism?"
   },
@@ -46,6 +56,8 @@ const CONFLICTS = [
     briefing:"Windswept islands 400 miles from one continent, 8,000 from the other. Governed by a distant power for 150 years. The few thousand inhabitants wish to remain. A military junta on the nearby continent invades, claiming the islands were stolen in the 1830s. The distant power sends a task force across the globe.",
     sideA:{label:"The Pelagic Commonwealth",claim:"Continuously settled by us. Inhabitants are our citizens who wish to remain. A dictatorship doesn't gain legitimacy by invasion.",values:["self-determination","defense-of-citizens","anti-aggression"]},
     sideB:{label:"La Rep\u00FAblica Austral",claim:"On our continental shelf, seized by colonial force. 'Settlers' are implanted \u2014 their presence doesn't legitimize theft.",values:["geographic-proximity","anti-colonialism","regional-consensus"]},
+    eli12:"Some windy islands way out in the ocean have been run by a country 8,000 miles away for 150 years. The few thousand people living there want to stay. But a nearby country (400 miles away) says the islands were stolen and sent their military to take them. The far-away country sent warships across the entire globe to get them back. The people who live there were originally settlers from the far-away country \u2014 does that matter?",
+    eli6:"Two kids fight over a rock in the sandbox. One kid says 'I put my flag on it first!' The other says 'But it's right next to MY castle!' The rock isn't even that cool. They fought over it anyway.",
     reveal:"Falkland Islands / Malvinas \u2014 Britain vs Argentina, 1982.",
     nuance:"Can a population 'implanted' by colonialism later invoke self-determination? Does time legitimize settlement?"
   },
@@ -54,6 +66,8 @@ const CONFLICTS = [
     briefing:"A fertile borderland changed hands four times in 75 years. After a devastating war, the victors transferred it without a plebiscite. The losers saw this as profound humiliation. A generation later, they seized it back. After the next war, it returned again. Today it's peacefully integrated, but scars persist.",
     sideA:{label:"The Republic of Gallia",claim:"This region was ours before it was taken by force. Its return corrected aggression. The population has integrated. The matter is settled.",values:["historical-restoration","cultural-integration","settled-borders"]},
     sideB:{label:"The Ostmark Federation",claim:"For much of history this was ours. It was stripped as punishment without consulting inhabitants. Using defeat to redraw borders creates resentment cycles.",values:["self-determination","anti-punitive-borders","plebiscite-rights"]},
+    eli12:"This one region kept getting passed back and forth between two countries every time they went to war. Win a war, take the region. Lose the next one, give it back. Nobody ever asked the people who actually lived there what they wanted. It changed hands four times in 75 years. Imagine moving between countries without ever leaving your house.",
+    eli6:"Two kids keep stealing each other's eraser. Every time one wins a game, they take it. Then the other kid wins and takes it back. The eraser is very tired.",
     reveal:"Alsace-Lorraine \u2014 France vs Germany, 1871\u20131945.",
     nuance:"Should military victory determine borders? Both sides have genuine connections. Are borders expressions of power or reflections of identity?"
   },
@@ -62,6 +76,8 @@ const CONFLICTS = [
     briefing:"A desert territory was colonized by a European power. When they withdrew, a neighboring kingdom marched in. An indigenous liberation movement fought back. The UN promised a referendum \u2014 never held. The kingdom has since settled hundreds of thousands of its own citizens in the territory.",
     sideA:{label:"The Amber Kingdom",claim:"Historically our domain before colonialism. We've invested heavily. The population is integrated. A referendum is no longer practical given demographics.",values:["historical-sovereignty","investment-legitimacy","stability"]},
     sideB:{label:"The Sahrawi Front",claim:"We're indigenous with UN-recognized self-determination rights. The settlers were brought to rig any vote. Our people live in refugee camps.",values:["self-determination","anti-occupation","international-law"]},
+    eli12:"A European country colonized a desert territory. When they left, the neighbor next door marched right in. The local people fought back and the UN said 'let's have a vote!' That vote never happened. Meanwhile, the occupying country moved hundreds of thousands of its own citizens in. Now they say a vote isn't practical because \u2014 look at all our people living here! The original people are stuck in refugee camps.",
+    eli6:"Imagine someone takes your sand castle and then fills it with all their own toys. When the teacher says 'let's vote on whose it is,' the kid says 'well, most of the toys in there are mine now, so...'",
     reveal:"Western Sahara \u2014 Morocco vs Polisario Front since 1975.",
     nuance:"If a state settles enough citizens in disputed territory, does that change the moral calculus? Demographic engineering vs self-determination."
   },
@@ -70,6 +86,8 @@ const CONFLICTS = [
     briefing:"A port city leased to a colonial empire for 99 years became a global financial center with freedoms far exceeding the mainland. Sovereignty transferred under 'one country, two systems' promising 50 years of autonomy. Within two decades, the mainland tightened control \u2014 restricting elections, prosecuting dissidents, imposing security laws. Massive protests erupted.",
     sideA:{label:"The Mainland Authority",claim:"This city was always ours \u2014 the colonial period was forced by unequal treaties. Security measures address foreign-backed destabilization. Sovereignty isn't negotiable.",values:["sovereignty","anti-colonialism","national-security"]},
     sideB:{label:"The Harbor Movement",claim:"We were promised autonomy, free press, independent judiciary for 50 years. Those promises are being broken. We want the rights guaranteed to us. A promise is a promise.",values:["civil-liberties","rule-of-law","contractual-obligation"]},
+    eli12:"A city was leased to a foreign empire for 99 years and became super wealthy with tons of freedoms. When the lease ended, it went back to the mainland with a deal: you can keep your freedoms for 50 years. Within 20 years, the mainland started breaking every promise \u2014 controlling elections, arresting protesters, shutting down free press. The city erupted in massive protests. The mainland said 'this is our city, always was.'",
+    eli6:"You lent your toy to a friend and said 'you can play with it your way for 50 days.' After 20 days you took it back and changed all the rules. Your friend is really upset because you promised.",
     reveal:"Hong Kong \u2014 handover 1997; 2019\u20132020 protests.",
     nuance:"Sovereignty vs civil liberties. Can rights gained under colonialism be legitimate? Does breaking a promise void the sovereignty claim?"
   },
@@ -78,6 +96,8 @@ const CONFLICTS = [
     briefing:"A small island ninety miles from a superpower overthrew a corrupt dictator. The new government nationalized industries and aligned with a rival superpower. The nearby superpower imposed an embargo and attempted invasion. The revolution brought healthcare and literacy but also one-party rule and political imprisonment.",
     sideA:{label:"The Northern Colossus",claim:"A hostile government aligned with our rival, ninety miles away, is unacceptable. They seized property, jail journalists. Our embargo pressures reform.",values:["national-security","property-rights","democratic-promotion"]},
     sideB:{label:"The Revolutionary Isle",claim:"We overthrew a dictator YOU propped up. We chose our own path \u2014 literacy, healthcare, sovereignty. Your embargo punishes civilians for defying you.",values:["sovereignty","anti-imperialism","social-welfare"]},
+    eli12:"A small island overthrew its dictator (who was backed by the nearby superpower). The new government gave everyone free healthcare and education but also jailed anyone who disagreed. They buddied up with the superpower's rival. The superpower freaked out and cut off all trade for 60+ years. Regular people on the island can't get basic stuff because of the embargo. The superpower says it's about freedom. The island says it IS free \u2014 from the superpower.",
+    eli6:"A kid stopped being friends with the big kid on the playground and started hanging out with the big kid's rival. The big kid said 'fine, nobody trade snacks with them EVER AGAIN.' It's been like 60 years. The kid still has no fruit snacks.",
     reveal:"Cuba \u2014 U.S. embargo since 1962.",
     nuance:"Does a small nation's self-determination include choosing authoritarianism? Does a superpower's security justify decades of civilian economic pressure?"
   },
@@ -86,6 +106,8 @@ const CONFLICTS = [
     briefing:"Indigenous people inhabited islands for centuries before Europeans. A treaty was signed \u2014 but translations differed critically. One version ceded sovereignty; the other retained indigenous authority. Colonization proceeded. Lands confiscated, language suppressed. Today the nation debates how to honor a treaty never honored.",
     sideA:{label:"The Settler Parliament",claim:"We acknowledge wrongs and established tribunals. But full restitution is impractical. Moving forward together matters more than relitigating the past.",values:["pragmatic-reconciliation","present-rights","institutional-remedy"]},
     sideB:{label:"The Tangata Whenua",claim:"The treaty was violated from day one. Money doesn't restore language or sovereignty. Honor what your ancestors signed. Co-governance is what was promised.",values:["treaty-honor","indigenous-sovereignty","co-governance"]},
+    eli12:"Settlers showed up and signed a treaty with the indigenous people \u2014 but the two versions said completely different things. One version said 'we share power.' The other said 'you give us all power.' The settlers used their version to take land, ban the language, and run everything. Now the country is trying to make it right with money and tribunals, but the indigenous people say: you never honored the treaty. Money isn't the same as sovereignty.",
+    eli6:"You and your friend made a deal and both wrote it down. But your version says 'we share the toys' and their version says 'I get all the toys.' They took all the toys. Now they want to give some back but you're like... that's not what we agreed on.",
     reveal:"New Zealand / Aotearoa \u2014 Treaty of Waitangi, 1840.",
     nuance:"Do historical injustices have a statute of limitations? If a treaty was never honored, does time diminish the obligation?"
   },
@@ -94,6 +116,8 @@ const CONFLICTS = [
     briefing:"A mountainous enclave of one ethnic group was assigned by a Soviet dictator to a different republic. When the USSR collapsed, the enclave declared independence. War followed. It existed as a de facto state for 30 years. Then the surrounding republic launched a drone offensive. The entire population \u2014 100,000+ \u2014 fled in days.",
     sideA:{label:"The Azeran Republic",claim:"Internationally recognized as ours. Illegally occupied for 30 years. We reclaimed what's legally ours.",values:["territorial-integrity","international-law","settled-borders"]},
     sideB:{label:"The Artsavan Council",claim:"We've lived in these mountains for millennia. A dictator's 1921 pen stroke doesn't erase our heritage. Our people were ethnically cleansed.",values:["self-determination","ethnic-kinship","cultural-preservation"]},
+    eli12:"A mountain region full of one ethnic group got placed inside a different country's borders by a Soviet dictator in the 1920s. When the Soviet Union fell apart, the people there said 'we're independent now.' They ran their own mini-country for 30 years. Then the surrounding country attacked with drones and won in days. Every single person \u2014 over 100,000 \u2014 fled. An entire population, gone.",
+    eli6:"Imagine your clubhouse is in someone else's yard because a grown-up decided that years ago. You played in it for a long time. Then the yard kid said 'get out' and knocked it down. Now you have no clubhouse and nowhere to go.",
     reveal:"Nagorno-Karabakh \u2014 Azerbaijan vs Armenia; recaptured 2023.",
     nuance:"When does 'restoring territorial integrity' become ethnic cleansing? The entire indigenous population was displaced in days."
   },
@@ -102,6 +126,8 @@ const CONFLICTS = [
     briefing:"An island with two ethnic communities gained independence. Intercommunal violence erupted. One community's patron mainland attempted annexation. The other's patron invaded and occupied the northern third. The island has been divided for fifty years. The occupation is recognized by no country except the occupier.",
     sideA:{label:"The Northern Sector",claim:"We intervened to prevent genocide. Partition was the only path to safety for our community.",values:["protection-of-diaspora","ethnic-kinship","national-security"]},
     sideB:{label:"The Cypriot Government",claim:"A foreign military occupies a third of our territory. Hundreds of thousands displaced. No country recognizes this. Fifty years isn't security \u2014 it's colonization.",values:["territorial-integrity","anti-occupation","international-law"]},
+    eli12:"An island had two ethnic groups that kept fighting after independence. One group's 'big brother' country tried to take over the whole island. The other group's 'big brother' invaded and grabbed the top third. They split it with a wall down the middle. It's been 50 years. No country on Earth recognizes the northern part as a real country except the one that invaded.",
+    eli6:"Two kids share a room. They keep fighting. One kid's big brother comes and puts tape down the middle and says 'this half is mine now.' The tape has been there for 50 years. No other kids think it's fair.",
     reveal:"Cyprus \u2014 divided since Turkey's 1974 invasion.",
     nuance:"Can a legitimate initial motivation (preventing genocide) justify permanent division? When does protection become occupation?"
   },
@@ -110,6 +136,8 @@ const CONFLICTS = [
     briefing:"A wealthy, culturally distinct region with its own language held an independence referendum \u2014 declared illegal. Police blocked voters. It passed overwhelmingly among participants. The central government arrested leaders for sedition.",
     sideA:{label:"The Central Kingdom",claim:"The constitution forbids unilateral secession. The referendum was illegal and boycotted. If every wealthy region could leave, no nation survives. Rule of law, not mob rule.",values:["constitutional-order","rule-of-law","territorial-integrity"]},
     sideB:{label:"The Catal\u00E1n Movement",claim:"We tried to vote peacefully. They sent riot police. Our leaders are political prisoners. A constitution that forbids self-determination is a cage.",values:["self-determination","democratic-will","cultural-identity"]},
+    eli12:"A rich region with its own language wanted to be its own country. They held a vote. The national government said 'that vote is illegal' and sent riot police to stop people from voting. It passed anyway (because everyone against it stayed home). The government arrested the leaders and charged them with crimes. So: is it democracy if the constitution says you can't vote on it?",
+    eli6:"You want to start your own club but the school says clubs aren't allowed. You try anyway. The principal takes away your recess. You're like... I just wanted my own club.",
     reveal:"Catalonia \u2014 2017 referendum declared illegal by Spain.",
     nuance:"Constitutional law vs popular sovereignty. If a constitution forbids secession, is self-determination illegal \u2014 or is the constitution unjust?"
   },
@@ -118,6 +146,8 @@ const CONFLICTS = [
     briefing:"Uninhabited rocky islets between two nations. One incorporated them in 1905 during colonial expansion over the other. After liberation, the colonized nation stationed police there. The former colonizer says incorporation predated colonization. The dispute is a lightning rod for unresolved historical trauma.",
     sideA:{label:"The Western Archipelago",claim:"We incorporated these through proper legal procedure before any colonial treaty. They're not colonial spoils.",values:["legal-precedent","treaty-law","institutional-process"]},
     sideB:{label:"The Eastern Isle Republic",claim:"You 'incorporated' them the same year you colonized our entire nation. Our records go back centuries. We will never relinquish them.",values:["anti-colonialism","historical-claim","historical-justice"]},
+    eli12:"Two countries fight over tiny rocky islands with basically nothing on them. One country claimed the rocks in 1905 \u2014 the same year they colonized the other country. They say 'the timing is a coincidence, we filed proper paperwork.' The other country says 'you literally colonized us that year, of course you took our rocks too.' It's not really about the rocks. It's about everything that happened.",
+    eli6:"A bigger kid took your rock collection while taking over your desk. Now they say 'I found those rocks fair and square!' You remember it differently.",
     reveal:"Dokdo / Takeshima \u2014 South Korea vs Japan.",
     nuance:"Can legal procedures during colonial expansion be separated from colonialism? The rocks are worthless \u2014 the dispute is about unprocessed trauma."
   },
@@ -126,6 +156,8 @@ const CONFLICTS = [
     briefing:"A remote archipelago was carved from a colony just before independence \u2014 as a condition of granting freedom. Inhabitants were forcibly removed for a military base. The ICJ ruled the separation illegal. The colonial power refuses to comply.",
     sideA:{label:"The Imperial Remnant",claim:"This base is critical to global security. We've offered compensation. Strategic reality must take precedence.",values:["national-security","stability","pragmatic-reconciliation"]},
     sideB:{label:"The Island Republic",claim:"You carved our territory as a condition of freedom \u2014 that's extortion. You deported our citizens. The World Court says it's illegal. Give it back.",values:["anti-colonialism","international-law","anti-displacement"]},
+    eli12:"Right before giving a colony independence, the colonial power said 'sure you can be free \u2014 but we're keeping those islands.' They kicked out everyone living there so they could build a military base. The World Court said that's illegal. The colonial power said 'cool, noted' and did absolutely nothing. The displaced people still can't go home.",
+    eli6:"You're playing with blocks. A bigger kid says 'you can have all your blocks back... except these ones. I need those.' They take YOUR blocks. The teacher says give them back. The bigger kid says 'nah.' Nobody makes them.",
     reveal:"Chagos Islands \u2014 Britain/Mauritius; U.S. base Diego Garcia; ICJ ruled 2019.",
     nuance:"Can strategic necessity override a World Court ruling? One of the clearest colonial injustices still unresolved."
   },
@@ -134,6 +166,8 @@ const CONFLICTS = [
     briefing:"30\u201340 million people with their own language and culture were promised a state after WWI. Promise broken. Their homeland carved among four nations. A century of suppression, chemical weapons, and military campaigns. They carved autonomous zones, fought extremists alongside international coalitions \u2014 then were abandoned.",
     sideA:{label:"The Kurdan Congress",claim:"Largest stateless nation on earth. Promised a homeland, betrayed. We fought the extremists when no one else would. We've earned self-governance.",values:["self-determination","cultural-identity","historical-justice"]},
     sideB:{label:"The Host States",claim:"An independent Kurdan state destabilizes four nations. Our Kurdan citizens have equal rights. Autonomy movements are exploited by foreign powers.",values:["territorial-integrity","stability","sovereignty"]},
+    eli12:"After World War I, world leaders promised a group of 30-40 million people their own country. Then they just... didn't do it. Instead their homeland got split between four different countries. For a century they've been attacked, gassed, and suppressed. They helped fight terrorists when nobody else would. Then got abandoned. Again. They're the biggest group of people on Earth without their own country.",
+    eli6:"Imagine a grown-up promised you a puppy. Then gave pieces of the puppy to four different kids. (Not a real puppy, it's a metaphor.) You've been asking for your puppy for 100 years and everyone keeps changing the subject.",
     reveal:"Kurdistan \u2014 Kurds split across Turkey, Iraq, Syria, Iran.",
     nuance:"Should the international order's commitment to existing borders outweigh the rights of 40 million people explicitly promised a homeland?"
   },
@@ -142,6 +176,8 @@ const CONFLICTS = [
     briefing:"A rising power claims vast ocean stretches \u2014 islands, reefs, shipping lanes hundreds of miles from its coast. Based on 'historical usage.' An international tribunal ruled the claim baseless. The power rejected the ruling, built artificial military islands, and harasses neighboring fishermen.",
     sideA:{label:"The Celestial Republic",claim:"Our sailors navigated these waters for a thousand years. Historical maps prove it. We reject the tribunal. Our development brings regional stability.",values:["historical-sovereignty","historical-claim","stability"]},
     sideB:{label:"The Coastal Coalition",claim:"You can't claim a sea from old maps. The tribunal ruling is binding. Your artificial islands are on our shelf. This is imperial expansion with extra steps.",values:["international-law","anti-aggression","rule-of-law"]},
+    eli12:"A big country drew a line on a map claiming almost an entire sea \u2014 hundreds of miles from their coast, right up to other countries' beaches. An international court said 'that's not how any of this works.' The big country said 'we don't recognize your court' and started building fake islands with military bases on them. They bully smaller countries' fishing boats. It's basically empire-building but with concrete and bulldozers.",
+    eli6:"A kid drew a circle around the ENTIRE sandbox and said 'this is all mine because my grandpa played here once.' The teacher said no. The kid built a fort in the sandbox anyway and won't let anyone else play.",
     reveal:"South China Sea \u2014 China's nine-dash line; rejected by The Hague, 2016.",
     nuance:"Historical usage vs modern law. When a major power ignores a binding ruling, what does 'international law' actually mean?"
   },
@@ -150,6 +186,8 @@ const CONFLICTS = [
     briefing:"When a Soviet republic gained independence, a narrow strip along a river declared its own. The population is mixed thirds of three ethnicities. A brief war ended with 'peacekeeping' troops from the former empire \u2014 still there. The breakaway has its own government and currency but is recognized by nobody. Its economy depends on smuggling.",
     sideA:{label:"The Dniestrian Republic",claim:"We declared independence the same time they did \u2014 why is theirs legitimate? We voted overwhelmingly. We've governed ourselves 30 years.",values:["self-determination","democratic-will","ethnic-kinship"]},
     sideB:{label:"The Moldavan State",claim:"A puppet propped up by a foreign military. No country recognizes it. The 'referendum' was held under imperial guns. This is manufactured separatism for leverage.",values:["territorial-integrity","anti-aggression","sovereignty"]},
+    eli12:"When a country broke free from the Soviet Union, a skinny strip along the river said 'we're breaking free too.' A brief war happened, then the old empire's soldiers showed up as 'peacekeepers' and never left. The strip has its own government, money, and even border guards \u2014 but zero countries recognize it. Its economy runs on smuggling. Is it a country? Is it a puppet? It's been 30 years and nobody really knows.",
+    eli6:"Your little brother declared his side of the room a separate country. He made his own flag and everything. But the only reason nobody can make him stop is because the big kid next door is standing in the doorway with his arms crossed.",
     reveal:"Transnistria \u2014 breakaway Moldova, Russian troops since 1992.",
     nuance:"Can self-determination be genuine when sustained entirely by a foreign military? If the soldiers left, would the state survive?"
   }
@@ -252,6 +290,7 @@ function Card({conflict:c,index:idx,total,onChoice,leaving}){
   const [locked,setLocked]=useState(false);
   const [entered,setEntered]=useState(false);
   const [hov,setHov]=useState(null);
+  const [eli,setEli]=useState(null);
   const [aiOpen,setAiOpen]=useState(false);
   const [aiMsgs,setAiMsgs]=useState([]);
   const [aiLoading,setAiLoading]=useState(false);
@@ -260,7 +299,7 @@ function Card({conflict:c,index:idx,total,onChoice,leaving}){
   const endRef=useRef(null);
 
   useEffect(()=>{
-    setSel(null);setLocked(false);setEntered(false);setHov(null);setAiOpen(false);setAiMsgs([]);setAiLoading(false);setCache({});
+    setSel(null);setLocked(false);setEntered(false);setHov(null);setEli(null);setAiOpen(false);setAiMsgs([]);setAiLoading(false);setCache({});
     setTimeout(()=>setEntered(true),50);
   },[c.id]);
 
@@ -320,6 +359,14 @@ function Card({conflict:c,index:idx,total,onChoice,leaving}){
       <div style={{maxWidth:720,width:"100%",borderLeft:`2px solid ${gold}33`,paddingLeft:"1.2rem",marginBottom:"1.5rem"}}>
         <p style={{fontFamily:mono,fontSize:"0.6rem",color:gold,letterSpacing:"0.2em",marginBottom:"0.5rem"}}>BRIEFING</p>
         <p style={{fontFamily:serif,fontSize:"clamp(1rem,3vw,1.1rem)",color:"#c8bfb0",lineHeight:1.75}}>{c.briefing}</p>
+        <div style={{display:"flex",gap:"0.5rem",marginTop:"0.8rem",flexWrap:"wrap"}}>
+          <button onClick={()=>setEli(eli==="12"?null:"12")} style={{fontFamily:mono,fontSize:"clamp(0.55rem,1.8vw,0.65rem)",color:eli==="12"?"#1a1714":gold,background:eli==="12"?gold:"transparent",border:`1px solid ${gold}66`,padding:"0.4rem 0.8rem",cursor:"pointer",borderRadius:3,transition:"all 0.2s",WebkitTapHighlightColor:"transparent"}}>{eli==="12"?"\u2716 CLOSE":"EXPLAIN LIKE I\u2019M IN 6TH GRADE"}</button>
+          <button onClick={()=>setEli(eli==="6"?null:"6")} style={{fontFamily:mono,fontSize:"clamp(0.55rem,1.8vw,0.65rem)",color:eli==="6"?"#1a1714":"#e8c97a",background:eli==="6"?"#e8c97a":"transparent",border:`1px solid #e8c97a66`,padding:"0.4rem 0.8rem",cursor:"pointer",borderRadius:3,transition:"all 0.2s",WebkitTapHighlightColor:"transparent"}}>{eli==="6"?"\u2716 CLOSE":"EXPLAIN LIKE I\u2019M 6"}</button>
+        </div>
+        {eli&&<div style={{marginTop:"0.8rem",padding:"0.8rem 1rem",background:"rgba(200,169,110,0.06)",border:`1px solid ${gold}22`,borderRadius:6,animation:"fu 0.3s ease forwards"}}>
+          <p style={{fontFamily:mono,fontSize:"0.5rem",color:gold,letterSpacing:"0.15em",marginBottom:"0.4rem"}}>{eli==="12"?"\uD83C\uDFEB 6TH GRADE VERSION":"\uD83E\uDDE8 6-YEAR-OLD VERSION"}</p>
+          <p style={{fontFamily:serif,fontSize:"clamp(0.95rem,2.8vw,1.05rem)",color:"#d4c9b8",lineHeight:1.75}}>{eli==="12"?c.eli12:c.eli6}</p>
+        </div>}
       </div>
 
       <div style={{maxWidth:720,width:"100%",display:"grid",gridTemplateColumns:"1fr 1fr",gap:"0.8rem",marginBottom:"1.2rem"}}>
