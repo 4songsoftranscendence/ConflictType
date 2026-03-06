@@ -379,27 +379,67 @@ function ShareCard({arch,sec,topV,aCt,bCt,total}){
   const draw=useCallback(()=>{
     const cv=ref.current;if(!cv)return;const x=cv.getContext("2d");
     const W=1080,H=1350;cv.width=W;cv.height=H;
-    x.fillStyle="#1a1714";x.fillRect(0,0,W,H);
-    x.strokeStyle="rgba(200,169,110,0.04)";for(let i=0;i<W;i+=50){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke();}for(let i=0;i<H;i+=50){x.beginPath();x.moveTo(0,i);x.lineTo(W,i);x.stroke();}
-    const g=x.createRadialGradient(W/2,H*.25,0,W/2,H*.25,400);g.addColorStop(0,"rgba(200,169,110,0.06)");g.addColorStop(1,"transparent");x.fillStyle=g;x.fillRect(0,0,W,H);
-    x.fillStyle=gold;x.font="600 26px sans-serif";x.textAlign="center";x.fillText("CONFLICTTYPE",W/2,80);
-    x.fillStyle="#7a6f60";x.font="20px sans-serif";x.fillText("Spotify Wrapped for your sense of justice",W/2,115);
-    x.font="100px serif";x.fillText(arch.emoji,W/2,250);
-    x.fillStyle="#e8dcc8";x.font="bold 62px Georgia";x.fillText(arch.name,W/2,340);
-    x.fillStyle=gold;x.font="italic 28px Georgia";x.fillText(arch.tagline,W/2,385);
-    if(sec){x.fillStyle="#7a6f60";x.font="24px sans-serif";x.fillText(`with shades of ${sec.name}`,W/2,425);}
-    const bY=480;x.strokeStyle="#3a352e";x.lineWidth=2;
-    x.strokeRect(W*.15,bY,W*.3,120);x.strokeRect(W*.55,bY,W*.3,120);
-    x.fillStyle=gold;x.font="bold 52px Georgia";x.fillText(String(aCt),W*.3,bY+60);x.fillText(String(bCt),W*.7,bY+60);
-    x.fillStyle="#7a6f60";x.font="500 18px sans-serif";x.fillText("ESTABLISHMENT",W*.3,bY+95);x.fillText("CHALLENGER",W*.7,bY+95);
-    x.fillStyle=gold;x.font="500 22px sans-serif";x.fillText("VALUE SIGNATURE",W/2,660);
-    const bX=180,bW=W-360,bH=14,mV=topV[0]?.[1]||1;
-    topV.slice(0,5).forEach(([k,v],i)=>{const y=690+i*48;x.fillStyle="#7a6f60";x.font="20px sans-serif";x.textAlign="right";x.fillText(VL[k]||k,bX-15,y+11);x.fillStyle="#2a2520";x.fillRect(bX,y,bW,bH);x.fillStyle=gold;x.fillRect(bX,y,(v/mV)*bW,bH);});
-    x.textAlign="center";x.fillStyle="#5a5345";x.font="500 22px sans-serif";
-    x.fillText(`${total} conflicts analyzed`,W/2,H-120);
-    x.fillStyle=gold;x.font="600 24px sans-serif";
-    x.fillText("Take yours \u2014 conflicttype.ai",W/2,H-70);
-    x.fillStyle="#3a352e";x.font="18px sans-serif";x.fillText("Built with Claude",W/2,H-35);
+    // Rich gradient background
+    const bg1=x.createLinearGradient(0,0,W,H);
+    bg1.addColorStop(0,"#1a0e2e");bg1.addColorStop(0.3,"#1c1428");bg1.addColorStop(0.6,"#2a1a18");bg1.addColorStop(1,"#1a1714");
+    x.fillStyle=bg1;x.fillRect(0,0,W,H);
+    // Glowing orbs
+    [[W*0.2,H*0.15,300,"rgba(200,130,50,0.08)"],[W*0.8,H*0.3,250,"rgba(150,100,200,0.06)"],[W*0.5,H*0.7,350,"rgba(200,169,110,0.05)"],[W*0.15,H*0.85,200,"rgba(180,80,80,0.05)"]].forEach(([cx,cy,r,c])=>{const g=x.createRadialGradient(cx,cy,0,cx,cy,r);g.addColorStop(0,c);g.addColorStop(1,"transparent");x.fillStyle=g;x.fillRect(0,0,W,H);});
+    // Sparkles
+    const sparkles=[[120,100],[960,180],[80,500],[1000,650],[200,900],[880,1100],[540,130],[150,1200],[950,950],[500,1250]];
+    sparkles.forEach(([sx,sy],i)=>{const sz=i%3===0?4:2;x.save();x.translate(sx,sy);x.rotate(Math.PI/4);x.fillStyle=`rgba(255,220,150,${0.3+i*0.05})`;x.fillRect(-sz,-1,sz*2,2);x.fillRect(-1,-sz,2,sz*2);x.restore();});
+    // Top badge
+    x.save();const badgeW=340,badgeH=44,badgeX=(W-badgeW)/2,badgeY=50;
+    x.fillStyle="rgba(200,169,110,0.12)";x.beginPath();x.roundRect(badgeX,badgeY,badgeW,badgeH,22);x.fill();
+    x.fillStyle="#e8c97a";x.font="600 20px sans-serif";x.textAlign="center";x.fillText("\u2694  CONFLICTTYPE  \u2694",W/2,badgeY+29);x.restore();
+    // Subtitle
+    x.fillStyle="rgba(200,169,110,0.5)";x.font="italic 22px Georgia";x.textAlign="center";x.fillText("Spotify Wrapped for your sense of justice",W/2,135);
+    // Big emoji with glow
+    const emojiY=280;
+    const eg=x.createRadialGradient(W/2,emojiY-20,0,W/2,emojiY-20,120);eg.addColorStop(0,"rgba(255,200,100,0.15)");eg.addColorStop(1,"transparent");x.fillStyle=eg;x.fillRect(W/2-150,emojiY-140,300,240);
+    x.font="140px serif";x.fillText(arch.emoji,W/2,emojiY+40);
+    // Name with bright color
+    x.fillStyle="#fff";x.font="bold 68px Georgia";x.fillText(arch.name,W/2,emojiY+130);
+    // Tagline
+    const tg=x.createLinearGradient(W*0.25,0,W*0.75,0);tg.addColorStop(0,"#e8c97a");tg.addColorStop(1,"#d4a054");
+    x.fillStyle=tg;x.font="italic 30px Georgia";x.fillText(`"${arch.tagline}"`,W/2,emojiY+180);
+    // Secondary
+    if(sec){x.fillStyle="rgba(200,169,110,0.45)";x.font="22px sans-serif";x.fillText(`with shades of ${sec.emoji} ${sec.name}`,W/2,emojiY+225);}
+    // Divider line
+    const divY=sec?emojiY+260:emojiY+240;
+    const dg=x.createLinearGradient(W*0.2,0,W*0.8,0);dg.addColorStop(0,"transparent");dg.addColorStop(0.5,"rgba(200,169,110,0.4)");dg.addColorStop(1,"transparent");
+    x.strokeStyle=dg;x.lineWidth=1;x.beginPath();x.moveTo(W*0.2,divY);x.lineTo(W*0.8,divY);x.stroke();
+    // Score boxes with glow
+    const bY=divY+35;
+    [[W*0.18,aCt,"ESTABLISHMENT","rgba(100,180,120,0.08)","#7dcea0"],[W*0.55,bCt,"CHALLENGER","rgba(200,100,80,0.08)","#e0876a"]].forEach(([bx,n,label,bgc,accent])=>{
+      x.fillStyle=bgc;x.beginPath();x.roundRect(bx,bY,W*0.27,110,12);x.fill();
+      x.strokeStyle=`${accent}44`;x.lineWidth=1;x.beginPath();x.roundRect(bx,bY,W*0.27,110,12);x.stroke();
+      x.fillStyle="#fff";x.font="bold 56px Georgia";x.textAlign="center";x.fillText(String(n),bx+W*0.135,bY+58);
+      x.fillStyle=accent;x.font="600 16px sans-serif";x.fillText(label,bx+W*0.135,bY+90);
+    });
+    // Value signature
+    const vsY=bY+155;
+    x.fillStyle="#e8c97a";x.font="600 20px sans-serif";x.textAlign="center";x.fillText("VALUE SIGNATURE",W/2,vsY);
+    const bX=200,bW=W-400,bH=20,mV=topV[0]?.[1]||1;
+    const barColors=["#e8c97a","#d4a054","#c4884a","#a07040","#806038"];
+    topV.slice(0,5).forEach(([k,v],i)=>{
+      const y=vsY+30+i*52;
+      x.fillStyle="rgba(255,255,255,0.5)";x.font="500 19px sans-serif";x.textAlign="right";x.fillText(VL[k]||k,bX-18,y+15);
+      x.fillStyle="rgba(255,255,255,0.06)";x.beginPath();x.roundRect(bX,y,bW,bH,10);x.fill();
+      const barG=x.createLinearGradient(bX,0,bX+(v/mV)*bW,0);barG.addColorStop(0,barColors[i]||gold);barG.addColorStop(1,`${barColors[i]||gold}88`);
+      x.fillStyle=barG;x.beginPath();x.roundRect(bX,y,(v/mV)*bW,bH,10);x.fill();
+      x.fillStyle="rgba(255,255,255,0.3)";x.font="500 16px sans-serif";x.textAlign="left";x.fillText(String(v),bX+(v/mV)*bW+12,y+15);
+    });
+    // Footer
+    x.textAlign="center";
+    x.fillStyle="rgba(255,255,255,0.25)";x.font="500 20px sans-serif";
+    x.fillText(`${total} conflicts analyzed`,W/2,H-140);
+    // CTA with pill
+    const ctaW=440,ctaH=52,ctaX=(W-ctaW)/2,ctaY=H-110;
+    const ctaG=x.createLinearGradient(ctaX,0,ctaX+ctaW,0);ctaG.addColorStop(0,"#e8c97a");ctaG.addColorStop(1,"#d4a054");
+    x.fillStyle=ctaG;x.beginPath();x.roundRect(ctaX,ctaY,ctaW,ctaH,26);x.fill();
+    x.fillStyle="#1a1714";x.font="bold 22px sans-serif";x.fillText("Take yours \u2014 conflicttype.ai",W/2,ctaY+34);
+    x.fillStyle="rgba(255,255,255,0.2)";x.font="16px sans-serif";x.fillText("Built with Claude",W/2,H-30);
   },[arch,sec,topV,aCt,bCt,total]);
   useEffect(()=>{draw();},[draw]);
   const dl=()=>{const l=document.createElement("a");l.download="my-conflicttype.png";l.href=ref.current.toDataURL("image/png");l.click();};
@@ -443,68 +483,82 @@ function Results({choices,conflicts,onRestart}){
     try{localStorage.setItem("ct-last-result",JSON.stringify({archetype:pri.name,date:new Date().toLocaleDateString()}));}catch(e){}
   },[pri]);
 
+  const barColors=["#e8c97a","#d4a054","#c4884a","#b07848","#906838","#706030","#605028","#504020"];
+
   return(
     <div style={{minHeight:"100vh",display:"flex",flexDirection:"column",alignItems:"center",padding:"clamp(1.5rem,4vh,3rem) 1.2rem",opacity:v?1:0,transform:v?"none":"translateY(20px)",transition:"all 1s"}}>
-      <p style={{fontFamily:mono,fontSize:"0.6rem",color:gold,letterSpacing:"0.2em",marginBottom:"1.2rem"}}>YOUR CONFLICTTYPE</p>
-      <div style={{fontSize:56,marginBottom:"0.8rem"}}>{pri.emoji}</div>
-      <h1 style={{fontFamily:disp,fontSize:"clamp(2rem,5vw,3rem)",color:"#e8dcc8",textAlign:"center",fontWeight:900,marginBottom:"0.2rem"}}>{pri.name}</h1>
-      <p style={{fontFamily:serif,fontSize:"1.05rem",color:gold,fontStyle:"italic",textAlign:"center"}}>{pri.tagline}</p>
-      {sec&&<p style={{fontFamily:mono,fontSize:"0.6rem",color:"#7a6f60",marginTop:"0.3rem"}}>with shades of {sec.name}</p>}
-      <div style={{width:50,height:1,background:`linear-gradient(90deg,transparent,${gold},transparent)`,margin:"1.5rem 0"}}/>
+      {/* Hero reveal */}
+      <div style={{textAlign:"center",marginBottom:"2rem",position:"relative"}}>
+        <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-60%)",width:200,height:200,borderRadius:"50%",background:"radial-gradient(circle,rgba(200,169,110,0.15) 0%,transparent 70%)",animation:"glow 3s ease-in-out infinite alternate",pointerEvents:"none"}}/>
+        <p style={{fontFamily:mono,fontSize:"0.65rem",color:gold,letterSpacing:"0.25em",marginBottom:"1rem",animation:"slideUp 0.8s ease forwards"}}>YOUR CONFLICTTYPE</p>
+        <div style={{fontSize:"clamp(64px,15vw,80px)",marginBottom:"0.5rem",animation:"popIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) 0.3s both",filter:"drop-shadow(0 0 20px rgba(200,169,110,0.3))"}}>{pri.emoji}</div>
+        <h1 style={{fontFamily:disp,fontSize:"clamp(2.2rem,6vw,3.2rem)",color:"#fff",textAlign:"center",fontWeight:900,marginBottom:"0.3rem",animation:"slideUp 0.8s ease 0.5s both"}}>{pri.name}</h1>
+        <p style={{fontFamily:serif,fontSize:"clamp(1rem,3vw,1.15rem)",color:"#e8c97a",fontStyle:"italic",textAlign:"center",animation:"slideUp 0.8s ease 0.7s both"}}>"{pri.tagline}"</p>
+        {sec&&<p style={{fontFamily:mono,fontSize:"0.65rem",color:"#a09580",marginTop:"0.5rem",animation:"slideUp 0.8s ease 0.9s both"}}>with shades of {sec.emoji} {sec.name}</p>}
+      </div>
+      <div style={{width:80,height:2,background:`linear-gradient(90deg,transparent,${gold},transparent)`,margin:"0.5rem 0 2rem"}}/>
 
-      <div style={{maxWidth:560,width:"100%",marginBottom:"2.5rem",padding:"1.5rem",border:"1px solid #3a352e",background:"rgba(200,169,110,0.03)"}}>
-        <p style={{fontFamily:serif,fontSize:"clamp(0.95rem,2.5vw,1.05rem)",color:"#b0a590",lineHeight:1.8,whiteSpace:"pre-wrap"}}>{pri.personality}</p>
+      {/* Personality card */}
+      <div style={{maxWidth:560,width:"100%",marginBottom:"2.5rem",padding:"1.8rem",border:`1px solid rgba(200,169,110,0.15)`,background:"linear-gradient(135deg,rgba(200,169,110,0.06) 0%,rgba(200,130,50,0.03) 100%)",borderRadius:4,animation:"slideUp 1s ease 1s both"}}>
+        <p style={{fontFamily:serif,fontSize:"clamp(0.95rem,2.5vw,1.08rem)",color:"#c8bfb0",lineHeight:1.85,whiteSpace:"pre-wrap"}}>{pri.personality}</p>
       </div>
 
-      <div style={{maxWidth:560,width:"100%",display:"grid",gridTemplateColumns:"1fr 1fr",gap:"0.8rem",marginBottom:"2.5rem"}}>
-        {[[aCt,"ESTABLISHMENT"],[bCt,"CHALLENGER"]].map(([n,l],i)=>(
-          <div key={i} style={{border:"1px solid #3a352e",padding:"1.2rem",textAlign:"center"}}>
-            <div style={{fontFamily:disp,fontSize:"2.2rem",color:gold}}>{n}</div>
-            <div style={{fontFamily:mono,fontSize:"0.55rem",color:"#7a6f60",letterSpacing:"0.12em"}}>{l}</div>
+      {/* Score boxes */}
+      <div style={{maxWidth:560,width:"100%",display:"grid",gridTemplateColumns:"1fr 1fr",gap:"1rem",marginBottom:"2.5rem",animation:"slideUp 1s ease 1.2s both"}}>
+        {[[aCt,"ESTABLISHMENT","#7dcea0","rgba(100,180,120,0.08)"],[bCt,"CHALLENGER","#e0876a","rgba(200,100,80,0.08)"]].map(([n,l,accent,bgc],i)=>(
+          <div key={i} style={{border:`1px solid ${accent}33`,padding:"1.4rem",textAlign:"center",background:bgc,borderRadius:4}}>
+            <div style={{fontFamily:disp,fontSize:"2.8rem",color:"#fff",fontWeight:700}}>{n}</div>
+            <div style={{fontFamily:mono,fontSize:"0.6rem",color:accent,letterSpacing:"0.12em",fontWeight:600}}>{l}</div>
           </div>
         ))}
       </div>
 
-      <div style={{maxWidth:560,width:"100%",marginBottom:"2.5rem"}}>
-        <p style={{fontFamily:mono,fontSize:"0.6rem",color:gold,letterSpacing:"0.2em",marginBottom:"1rem"}}>VALUE SIGNATURE</p>
-        {tv.map(([k,ct])=>(
-          <div key={k} style={{display:"flex",alignItems:"center",gap:"0.6rem",marginBottom:"0.6rem"}}>
-            <span style={{fontFamily:mono,fontSize:"0.6rem",color:"#8a7f70",width:130,textAlign:"right",flexShrink:0}}>{VL[k]||k}</span>
-            <div style={{flex:1,height:5,background:"#2a2520"}}><div style={{height:"100%",width:`${(ct/mx)*100}%`,background:`linear-gradient(90deg,${gold},#a08555)`,transition:"width 1s"}}/></div>
-            <span style={{fontFamily:mono,fontSize:"0.55rem",color:dim,width:16}}>{ct}</span>
+      {/* Value signature */}
+      <div style={{maxWidth:560,width:"100%",marginBottom:"2.5rem",animation:"slideUp 1s ease 1.4s both"}}>
+        <p style={{fontFamily:mono,fontSize:"0.65rem",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>VALUE SIGNATURE</p>
+        {tv.map(([k,ct],i)=>(
+          <div key={k} style={{display:"flex",alignItems:"center",gap:"0.6rem",marginBottom:"0.7rem"}}>
+            <span style={{fontFamily:mono,fontSize:"0.6rem",color:"#a09580",width:130,textAlign:"right",flexShrink:0}}>{VL[k]||k}</span>
+            <div style={{flex:1,height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,overflow:"hidden"}}><div style={{height:"100%",width:`${(ct/mx)*100}%`,background:`linear-gradient(90deg,${barColors[i]||gold},${barColors[i]||gold}88)`,borderRadius:4,transition:"width 1.2s cubic-bezier(0.25,0.46,0.45,0.94)",transitionDelay:`${1.6+i*0.15}s`}}/></div>
+            <span style={{fontFamily:mono,fontSize:"0.6rem",color:"#c8bfb0",width:16,fontWeight:600}}>{ct}</span>
           </div>
         ))}
       </div>
 
-      <div style={{maxWidth:560,width:"100%",marginBottom:"2.5rem"}}>
-        <p style={{fontFamily:mono,fontSize:"0.6rem",color:gold,letterSpacing:"0.2em",marginBottom:"1rem"}}>ARCHETYPE MIX</p>
+      {/* Archetype mix */}
+      <div style={{maxWidth:560,width:"100%",marginBottom:"2.5rem",animation:"slideUp 1s ease 1.6s both"}}>
+        <p style={{fontFamily:mono,fontSize:"0.65rem",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>ARCHETYPE MIX</p>
         {as.filter(a=>a.score>0).map((a,i)=>(
-          <div key={a.name} style={{display:"flex",alignItems:"center",gap:"0.6rem",marginBottom:"0.5rem",opacity:0.5+0.5*(1-i/6)}}>
-            <span style={{fontFamily:mono,fontSize:"0.6rem",color:i===0?gold:"#8a7f70",width:150,textAlign:"right",flexShrink:0}}>{a.emoji} {a.name}</span>
-            <div style={{flex:1,height:3,background:"#2a2520"}}><div style={{height:"100%",width:`${(a.score/(pri.score||1))*100}%`,background:i===0?gold:"#5a5345",transition:"width 1s"}}/></div>
+          <div key={a.name} style={{display:"flex",alignItems:"center",gap:"0.6rem",marginBottom:"0.6rem"}}>
+            <span style={{fontFamily:mono,fontSize:"0.6rem",color:i===0?"#fff":"#a09580",width:160,textAlign:"right",flexShrink:0,fontWeight:i===0?600:400}}>{a.emoji} {a.name}</span>
+            <div style={{flex:1,height:i===0?6:3,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}><div style={{height:"100%",width:`${(a.score/(pri.score||1))*100}%`,background:i===0?"linear-gradient(90deg,#e8c97a,#d4a054)":"rgba(200,169,110,0.25)",borderRadius:3,transition:"width 1s",transitionDelay:`${2+i*0.1}s`}}/></div>
           </div>
         ))}
       </div>
 
-      <div style={{maxWidth:560,width:"100%",marginBottom:"2.5rem",borderTop:"1px solid #3a352e33",paddingTop:"1.5rem"}}>
-        <p style={{fontFamily:mono,fontSize:"0.6rem",color:gold,letterSpacing:"0.2em",marginBottom:"1rem"}}>CASE LOG</p>
+      {/* Case log */}
+      <div style={{maxWidth:560,width:"100%",marginBottom:"2.5rem",paddingTop:"1.5rem",animation:"slideUp 1s ease 1.8s both"}}>
+        <p style={{fontFamily:mono,fontSize:"0.65rem",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>CASE LOG</p>
         {choices.map(({cid,side},i)=>{const co=conflicts.find(x=>x.id===cid);return(
-          <div key={cid} style={{display:"flex",gap:"0.6rem",marginBottom:"0.5rem",padding:"0.6rem 0.8rem",background:"rgba(200,169,110,0.02)",border:"1px solid #252220"}}>
-            <span style={{fontFamily:mono,fontSize:"0.5rem",color:dim}}>{String(i+1).padStart(2,"0")}</span>
+          <div key={cid} style={{display:"flex",gap:"0.8rem",marginBottom:"0.6rem",padding:"0.7rem 1rem",background:"rgba(200,169,110,0.03)",border:"1px solid rgba(200,169,110,0.08)",borderRadius:3,transition:"background 0.2s"}}>
+            <span style={{fontFamily:mono,fontSize:"0.6rem",color:"#e8c97a",fontWeight:600}}>{String(i+1).padStart(2,"0")}</span>
             <div>
-              <p style={{fontFamily:serif,fontSize:"0.9rem",color:"#c8bfb0"}}>{co.reveal.split("\u2014")[0].trim()}</p>
-              <p style={{fontFamily:mono,fontSize:"0.5rem",color:"#7a6f60"}}>{co[side].label}</p>
+              <p style={{fontFamily:serif,fontSize:"0.95rem",color:"#e0d5c5"}}>{co.reveal.split("\u2014")[0].trim()}</p>
+              <p style={{fontFamily:mono,fontSize:"0.55rem",color:"#8a7f70",marginTop:"0.15rem"}}>{co[side].label}</p>
             </div>
           </div>
         );})}
       </div>
 
-      <div style={{maxWidth:560,width:"100%",textAlign:"center",marginBottom:"2.5rem"}}>
-        <button onClick={()=>setShowShare(!showShare)} style={{fontFamily:mono,fontSize:"0.7rem",color:bg,background:gold,border:"none",padding:"0.8rem 2rem",cursor:"pointer",fontWeight:600,marginBottom:"1rem"}}>{showShare?"HIDE":"SHARE YOUR TYPE"}</button>
+      {/* Share section */}
+      <div style={{maxWidth:560,width:"100%",textAlign:"center",marginBottom:"2.5rem",animation:"slideUp 1s ease 2s both"}}>
+        <button onClick={()=>setShowShare(!showShare)} style={{fontFamily:mono,fontSize:"0.75rem",color:"#1a1714",background:"linear-gradient(135deg,#e8c97a,#d4a054)",border:"none",padding:"1rem 2.5rem",cursor:"pointer",fontWeight:700,letterSpacing:"0.08em",borderRadius:4,boxShadow:"0 4px 20px rgba(200,169,110,0.3)",transition:"transform 0.2s, box-shadow 0.2s",marginBottom:"1rem",WebkitTapHighlightColor:"transparent"}}>{showShare?"HIDE":"SHARE YOUR TYPE"}</button>
         {showShare&&<div style={{marginTop:"1rem"}}><ShareCard arch={pri} sec={sec} topV={tv} aCt={aCt} bCt={bCt} total={choices.length}/></div>}
       </div>
 
-      <button onClick={onRestart} style={{fontFamily:mono,fontSize:"0.65rem",color:gold,background:"transparent",border:`1px solid ${gold}33`,padding:"0.7rem 1.5rem",cursor:"pointer",marginBottom:"2rem"}}>RETAKE</button>
+      <button onClick={onRestart} style={{fontFamily:mono,fontSize:"0.65rem",color:"#a09580",background:"transparent",border:`1px solid rgba(200,169,110,0.2)`,padding:"0.7rem 1.5rem",cursor:"pointer",marginBottom:"2rem",borderRadius:3,transition:"color 0.2s",WebkitTapHighlightColor:"transparent"}}>RETAKE</button>
+
+      <style>{`@keyframes glow{from{opacity:0.6;transform:translate(-50%,-60%) scale(0.9)}to{opacity:1;transform:translate(-50%,-60%) scale(1.1)}}@keyframes popIn{from{opacity:0;transform:scale(0.3)}to{opacity:1;transform:scale(1)}}@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}`}</style>
     </div>
   );
 }
