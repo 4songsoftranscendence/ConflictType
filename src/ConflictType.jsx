@@ -403,11 +403,24 @@ function ShareCard({arch,sec,topV,aCt,bCt,total}){
   },[arch,sec,topV,aCt,bCt,total]);
   useEffect(()=>{draw();},[draw]);
   const dl=()=>{const l=document.createElement("a");l.download="my-conflicttype.png";l.href=ref.current.toDataURL("image/png");l.click();};
+  const siteUrl=typeof window!=="undefined"?window.location.origin:"";
+  const ghUrl="https://github.com/4songsoftranscendence/ConflictType";
+  const shareText=`I'm ${arch.name} on ConflictType \u2014 Spotify Wrapped for your sense of justice. Take yours:`;
+  const shareBtn={fontFamily:mono,fontSize:"0.6rem",color:gold,background:"transparent",border:`1px solid ${gold}44`,padding:"0.6rem 1rem",cursor:"pointer",WebkitTapHighlightColor:"transparent"};
   return(<div style={{textAlign:"center"}}>
     <canvas ref={ref} style={{width:"100%",maxWidth:320,border:"1px solid #3a352e"}}/>
     <div style={{marginTop:"1rem",display:"flex",gap:"0.5rem",justifyContent:"center",flexWrap:"wrap"}}>
       <button onClick={dl} style={{fontFamily:mono,fontSize:"0.65rem",color:bg,background:gold,border:"none",padding:"0.7rem 1.5rem",cursor:"pointer",fontWeight:600}}>DOWNLOAD</button>
-      <button onClick={()=>{navigator.clipboard?.writeText(`I'm ${arch.name} on ConflictType \u2014 Spotify Wrapped for your sense of justice. Take yours: conflicttype.ai`);}} style={{fontFamily:mono,fontSize:"0.65rem",color:gold,background:"transparent",border:`1px solid ${gold}44`,padding:"0.7rem 1.5rem",cursor:"pointer"}}>COPY SHARE TEXT</button>
+      <button onClick={()=>{navigator.clipboard?.writeText(`${shareText} ${siteUrl}`);}} style={{...shareBtn,fontSize:"0.65rem",padding:"0.7rem 1.5rem"}}>COPY SHARE TEXT</button>
+    </div>
+    <div style={{marginTop:"0.8rem",display:"flex",gap:"0.4rem",justifyContent:"center",flexWrap:"wrap"}}>
+      <button onClick={()=>window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(siteUrl)}`,`_blank`)} style={shareBtn}>X / TWITTER</button>
+      <button onClick={()=>window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(siteUrl)}&quote=${encodeURIComponent(shareText)}`,`_blank`)} style={shareBtn}>FACEBOOK</button>
+      <button onClick={()=>window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(siteUrl)}`,`_blank`)} style={shareBtn}>LINKEDIN</button>
+      <button onClick={()=>window.open(`https://reddit.com/submit?url=${encodeURIComponent(siteUrl)}&title=${encodeURIComponent(shareText)}`,`_blank`)} style={shareBtn}>REDDIT</button>
+    </div>
+    <div style={{marginTop:"0.8rem"}}>
+      <a href={ghUrl} target="_blank" rel="noopener noreferrer" style={{fontFamily:mono,fontSize:"0.55rem",color:dim,textDecoration:"none",borderBottom:`1px solid ${dim}`}}>VIEW SOURCE ON GITHUB</a>
     </div>
   </div>);
 }
