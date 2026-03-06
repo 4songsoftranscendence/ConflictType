@@ -203,20 +203,45 @@ function Intro({onStart}){
     try{const r=localStorage.getItem("ct-last-result");if(r)setSaved(JSON.parse(r));}catch(e){}
   },[]);
   return(
-    <div style={{minHeight:"100vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"1.5rem",opacity:v?1:0,transform:v?"none":"translateY(20px)",transition:"all 1s"}}>
-      <div style={{fontSize:48,marginBottom:"1.5rem"}}>{"\u2694"}</div>
-      <h1 style={{fontFamily:disp,fontSize:"clamp(2.4rem,7vw,4rem)",fontWeight:900,color:"#e8dcc8",textAlign:"center",letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:"0.3rem"}}>ConflictType</h1>
-      <p style={{fontFamily:mono,fontSize:"clamp(0.65rem,2vw,0.8rem)",color:gold,letterSpacing:"0.1em",textAlign:"center",marginBottom:"2rem"}}>Spotify Wrapped for your sense of justice</p>
-      <p style={{fontFamily:serif,fontSize:"clamp(1rem,3vw,1.15rem)",color:"#8a7f70",textAlign:"center",maxWidth:460,lineHeight:1.7,marginBottom:"2.5rem"}}>Real territorial conflicts. Fictional names. Two sides. Pick one. Find out what your instincts say about you.</p>
-      <div style={{display:"flex",gap:"0.8rem",flexWrap:"wrap",justifyContent:"center"}}>
-        {[[6,"Quick Six",true],[12,"Full Dossier",false]].map(([n,label,filled])=>(
-          <button key={n} onClick={()=>onStart(n)} style={{fontFamily:serif,fontSize:"clamp(1rem,3vw,1.1rem)",color:filled?bg:gold,background:filled?gold:"transparent",border:filled?"none":`1px solid ${gold}55`,padding:"0.9rem 2rem",cursor:"pointer",fontWeight:600,letterSpacing:"0.04em",minWidth:160,WebkitTapHighlightColor:"transparent"}}>{label}</button>
+    <div style={{minHeight:"100svh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"clamp(1.2rem,4vw,2rem)",opacity:v?1:0,transform:v?"none":"translateY(20px)",transition:"all 1s"}}>
+      {/* Glow */}
+      <div style={{position:"absolute",top:"30%",left:"50%",transform:"translate(-50%,-50%)",width:300,height:300,borderRadius:"50%",background:"radial-gradient(circle,rgba(200,169,110,0.12) 0%,rgba(150,100,200,0.04) 50%,transparent 70%)",animation:"glow 4s ease-in-out infinite alternate",pointerEvents:"none"}}/>
+
+      <div style={{fontSize:"clamp(48px,12vw,64px)",marginBottom:"clamp(0.8rem,3vw,1.2rem)",animation:"popIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) both",filter:"drop-shadow(0 0 20px rgba(200,169,110,0.3))"}}>{"\u2694"}</div>
+
+      <h1 style={{fontFamily:disp,fontSize:"clamp(2.8rem,9vw,4.2rem)",fontWeight:900,color:"#fff",textAlign:"center",letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:"0.4rem",animation:"slideUp 0.6s ease 0.2s both"}}>ConflictType</h1>
+
+      <p style={{fontFamily:mono,fontSize:"clamp(0.7rem,2.2vw,0.85rem)",color:"#e8c97a",letterSpacing:"0.12em",textAlign:"center",marginBottom:"clamp(1.2rem,4vw,1.8rem)",animation:"slideUp 0.6s ease 0.35s both"}}>SPOTIFY WRAPPED FOR YOUR SENSE OF JUSTICE</p>
+
+      <div style={{maxWidth:480,textAlign:"center",marginBottom:"clamp(1.5rem,5vw,2.5rem)",animation:"slideUp 0.6s ease 0.5s both"}}>
+        <p style={{fontFamily:serif,fontSize:"clamp(1.1rem,3.5vw,1.25rem)",color:"#b0a590",lineHeight:1.75,marginBottom:"0.8rem"}}>19 real territorial conflicts. The names are fake. The stakes aren't.</p>
+        <p style={{fontFamily:serif,fontSize:"clamp(1.05rem,3.2vw,1.15rem)",color:"#8a7f70",lineHeight:1.7}}>Pick a side on each one. We'll tell you what your gut says about how you actually think about justice, power, and whose rights matter.</p>
+      </div>
+
+      {/* Bullets */}
+      <div style={{display:"flex",flexDirection:"column",gap:"0.5rem",marginBottom:"clamp(1.5rem,5vw,2.5rem)",animation:"slideUp 0.6s ease 0.65s both"}}>
+        {[["Takes 3\u201310 min","\u23F1"],["No right answers","\u2753"],["You WILL feel conflicted","\uD83E\uDD2F"],["That's the point","\u2694\uFE0F"]].map(([t,e])=>(
+          <div key={t} style={{display:"flex",alignItems:"center",gap:"0.6rem"}}>
+            <span style={{fontSize:"clamp(1rem,3vw,1.2rem)"}}>{e}</span>
+            <span style={{fontFamily:mono,fontSize:"clamp(0.7rem,2.2vw,0.8rem)",color:"#a09580"}}>{t}</span>
+          </div>
         ))}
       </div>
-      {saved&&<div style={{marginTop:"2rem",padding:"0.8rem 1.2rem",border:"1px solid #3a352e",textAlign:"center"}}>
-        <p style={{fontFamily:mono,fontSize:"0.6rem",color:dim,letterSpacing:"0.1em"}}>LAST RESULT</p>
-        <p style={{fontFamily:disp,fontSize:"1.1rem",color:"#e8dcc8"}}>{saved.archetype}</p>
+
+      {/* CTA buttons */}
+      <div style={{display:"flex",gap:"clamp(0.6rem,2vw,1rem)",flexWrap:"wrap",justifyContent:"center",animation:"slideUp 0.6s ease 0.8s both"}}>
+        <button onClick={()=>onStart(6)} style={{fontFamily:mono,fontSize:"clamp(0.85rem,2.8vw,1rem)",color:bg,background:"linear-gradient(135deg,#e8c97a,#d4a054)",border:"none",padding:"clamp(0.8rem,2.5vw,1rem) clamp(1.5rem,5vw,2.2rem)",cursor:"pointer",fontWeight:700,letterSpacing:"0.06em",borderRadius:6,boxShadow:"0 4px 20px rgba(200,169,110,0.3)",minWidth:160,WebkitTapHighlightColor:"transparent"}}>QUICK SIX</button>
+        <button onClick={()=>onStart(12)} style={{fontFamily:mono,fontSize:"clamp(0.85rem,2.8vw,1rem)",color:"#e8c97a",background:"transparent",border:"2px solid rgba(200,169,110,0.35)",padding:"clamp(0.8rem,2.5vw,1rem) clamp(1.5rem,5vw,2.2rem)",cursor:"pointer",fontWeight:600,letterSpacing:"0.06em",borderRadius:6,minWidth:160,WebkitTapHighlightColor:"transparent"}}>FULL DOSSIER</button>
+      </div>
+
+      <p style={{fontFamily:mono,fontSize:"clamp(0.55rem,1.6vw,0.65rem)",color:"#5a5345",marginTop:"clamp(0.6rem,2vw,1rem)",animation:"slideUp 0.6s ease 0.95s both"}}>6 conflicts vs all 19 &middot; same vibe, different depth</p>
+
+      {saved&&<div style={{marginTop:"clamp(1rem,3vw,1.5rem)",padding:"0.6rem 1.2rem",border:"1px solid rgba(200,169,110,0.15)",borderRadius:8,textAlign:"center",background:"rgba(200,169,110,0.04)",animation:"slideUp 0.6s ease 1.1s both"}}>
+        <p style={{fontFamily:mono,fontSize:"clamp(0.55rem,1.6vw,0.6rem)",color:"#8a7f70",letterSpacing:"0.12em",marginBottom:"0.2rem"}}>LAST TIME YOU WERE</p>
+        <p style={{fontFamily:disp,fontSize:"clamp(1.1rem,3vw,1.3rem)",color:"#fff"}}>{saved.archetype}</p>
       </div>}
+
+      <style>{`@keyframes glow{from{opacity:0.6;transform:translate(-50%,-50%) scale(0.9)}to{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}@keyframes popIn{from{opacity:0;transform:scale(0.3)}to{opacity:1;transform:scale(1)}}@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}`}</style>
     </div>
   );
 }
