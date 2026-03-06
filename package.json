@@ -1,0 +1,31 @@
+{
+  "name": "conflicttype",
+  "version": "1.0.0",
+  "description": "Its spotify wrapped for your sense of justice",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4songsoftranscendence/ConflictType.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4songsoftranscendence/ConflictType/issues"
+  },
+  "homepage": "https://github.com/4songsoftranscendence/ConflictType#readme",
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "vite": "^7.3.1"
+  }
+}
