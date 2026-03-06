@@ -133,7 +133,7 @@ const CONFLICTS = [
     id:17,era:"20th\u201321st Century",region:"Middle East",nameA:"Kurdan Congress",nameB:"Four Host States",
     briefing:"30\u201340 million people with their own language and culture were promised a state after WWI. Promise broken. Their homeland carved among four nations. A century of suppression, chemical weapons, and military campaigns. They carved autonomous zones, fought extremists alongside international coalitions \u2014 then were abandoned.",
     sideA:{label:"The Kurdan Congress",claim:"Largest stateless nation on earth. Promised a homeland, betrayed. We fought the extremists when no one else would. We've earned self-governance.",values:["self-determination","cultural-identity","historical-justice"]},
-    sideB:{label:"The Host States",claim:"An independent Kurdish state destabilizes four nations. Our Kurdish citizens have equal rights. Autonomy movements are exploited by foreign powers.",values:["territorial-integrity","stability","sovereignty"]},
+    sideB:{label:"The Host States",claim:"An independent Kurdan state destabilizes four nations. Our Kurdan citizens have equal rights. Autonomy movements are exploited by foreign powers.",values:["territorial-integrity","stability","sovereignty"]},
     reveal:"Kurdistan \u2014 Kurds split across Turkey, Iraq, Syria, Iran.",
     nuance:"Should the international order's commitment to existing borders outweigh the rights of 40 million people explicitly promised a homeland?"
   },
