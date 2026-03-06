@@ -472,7 +472,7 @@ function Results({choices,conflicts,onRestart}){
   const barColors=["#e8c97a","#d4a054","#c4884a","#b07848","#906838","#706030","#605028","#504020"];
   const siteUrl="https://conflicttype.netlify.app";
   const shareText=`I'm ${pri.name} on ConflictType \u2014 Spotify Wrapped for your sense of justice. Take yours:`;
-  const iconBtn=(svg,onClick)=>(<button onClick={onClick} style={{width:48,height:48,borderRadius:"50%",border:"1px solid rgba(200,169,110,0.25)",background:"rgba(200,169,110,0.08)",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.2s",WebkitTapHighlightColor:"transparent"}} onMouseEnter={e=>{e.currentTarget.style.background="rgba(200,169,110,0.2)";e.currentTarget.style.transform="scale(1.1)";}} onMouseLeave={e=>{e.currentTarget.style.background="rgba(200,169,110,0.08)";e.currentTarget.style.transform="scale(1)";}}><svg width="20" height="20" viewBox="0 0 24 24" fill="#e8c97a" dangerouslySetInnerHTML={{__html:svg}}/></button>);
+  const iconBtn=(svg,onClick)=>(<button onClick={onClick} style={{width:56,height:56,borderRadius:"50%",border:"1px solid rgba(200,169,110,0.3)",background:"rgba(200,169,110,0.1)",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.2s",WebkitTapHighlightColor:"transparent"}} onMouseEnter={e=>{e.currentTarget.style.background="rgba(200,169,110,0.25)";e.currentTarget.style.transform="scale(1.1)";}} onMouseLeave={e=>{e.currentTarget.style.background="rgba(200,169,110,0.1)";e.currentTarget.style.transform="scale(1)";}}><svg width="24" height="24" viewBox="0 0 24 24" fill="#e8c97a" dangerouslySetInnerHTML={{__html:svg}}/></button>);
 
   return(
     <div style={{minHeight:"100vh",display:"flex",flexDirection:"column",alignItems:"center",padding:"clamp(1rem,3vh,2rem) 1.2rem",opacity:v?1:0,transform:v?"none":"translateY(20px)",transition:"all 1s"}}>
@@ -481,34 +481,34 @@ function Results({choices,conflicts,onRestart}){
         {/* Hero */}
         <div style={{textAlign:"center",position:"relative",marginBottom:"1.2rem"}}>
           <div style={{position:"absolute",top:"40%",left:"50%",transform:"translate(-50%,-50%)",width:250,height:250,borderRadius:"50%",background:"radial-gradient(circle,rgba(200,169,110,0.18) 0%,rgba(150,100,200,0.06) 40%,transparent 70%)",animation:"glow 3s ease-in-out infinite alternate",pointerEvents:"none"}}/>
-          <p style={{fontFamily:mono,fontSize:"0.6rem",color:gold,letterSpacing:"0.25em",marginBottom:"0.6rem",animation:"slideUp 0.6s ease forwards"}}>YOUR CONFLICTTYPE</p>
-          <div style={{fontSize:"clamp(56px,14vw,72px)",marginBottom:"0.3rem",animation:"popIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) 0.2s both",filter:"drop-shadow(0 0 30px rgba(200,169,110,0.4))"}}>{pri.emoji}</div>
-          <h1 style={{fontFamily:disp,fontSize:"clamp(2rem,6vw,2.8rem)",color:"#fff",fontWeight:900,marginBottom:"0.2rem",animation:"slideUp 0.6s ease 0.4s both"}}>{pri.name}</h1>
-          <p style={{fontFamily:serif,fontSize:"clamp(0.9rem,2.5vw,1.05rem)",color:"#e8c97a",fontStyle:"italic",animation:"slideUp 0.6s ease 0.55s both"}}>"{pri.tagline}"</p>
-          {sec&&<p style={{fontFamily:mono,fontSize:"0.6rem",color:"#a09580",marginTop:"0.3rem",animation:"slideUp 0.6s ease 0.7s both"}}>with shades of {sec.emoji} {sec.name}</p>}
+          <p style={{fontFamily:mono,fontSize:"clamp(0.7rem,2.2vw,0.8rem)",color:gold,letterSpacing:"0.25em",marginBottom:"0.8rem",animation:"slideUp 0.6s ease forwards"}}>YOUR CONFLICTTYPE</p>
+          <div style={{fontSize:"clamp(64px,18vw,88px)",marginBottom:"0.4rem",animation:"popIn 0.6s cubic-bezier(0.175,0.885,0.32,1.275) 0.2s both",filter:"drop-shadow(0 0 30px rgba(200,169,110,0.4))"}}>{pri.emoji}</div>
+          <h1 style={{fontFamily:disp,fontSize:"clamp(2.4rem,8vw,3.2rem)",color:"#fff",fontWeight:900,marginBottom:"0.3rem",animation:"slideUp 0.6s ease 0.4s both"}}>{pri.name}</h1>
+          <p style={{fontFamily:serif,fontSize:"clamp(1.05rem,3.5vw,1.2rem)",color:"#e8c97a",fontStyle:"italic",animation:"slideUp 0.6s ease 0.55s both"}}>"{pri.tagline}"</p>
+          {sec&&<p style={{fontFamily:mono,fontSize:"clamp(0.7rem,2.2vw,0.8rem)",color:"#a09580",marginTop:"0.4rem",animation:"slideUp 0.6s ease 0.7s both"}}>with shades of {sec.emoji} {sec.name}</p>}
         </div>
 
         {/* Score pills inline */}
-        <div style={{display:"flex",gap:"0.8rem",marginBottom:"1.2rem",animation:"slideUp 0.6s ease 0.8s both"}}>
-          {[[aCt,"EST","#7dcea0"],[bCt,"CHL","#e0876a"]].map(([n,l,c],i)=>(
-            <div key={i} style={{display:"flex",alignItems:"center",gap:"0.4rem",padding:"0.4rem 0.8rem",border:`1px solid ${c}44`,borderRadius:20,background:`${c}11`}}>
-              <span style={{fontFamily:disp,fontSize:"1.4rem",color:"#fff",fontWeight:700}}>{n}</span>
-              <span style={{fontFamily:mono,fontSize:"0.5rem",color:c,letterSpacing:"0.08em"}}>{l}</span>
+        <div style={{display:"flex",gap:"1rem",marginBottom:"1.5rem",animation:"slideUp 0.6s ease 0.8s both"}}>
+          {[[aCt,"ESTABLISHMENT","#7dcea0"],[bCt,"CHALLENGER","#e0876a"]].map(([n,l,c],i)=>(
+            <div key={i} style={{display:"flex",alignItems:"center",gap:"0.5rem",padding:"0.5rem 1rem",border:`1px solid ${c}44`,borderRadius:24,background:`${c}11`}}>
+              <span style={{fontFamily:disp,fontSize:"clamp(1.6rem,5vw,2rem)",color:"#fff",fontWeight:700}}>{n}</span>
+              <span style={{fontFamily:mono,fontSize:"clamp(0.55rem,1.8vw,0.65rem)",color:c,letterSpacing:"0.08em"}}>{l}</span>
             </div>
           ))}
         </div>
 
         {/* Social share buttons with SVG icons */}
         <div style={{animation:"slideUp 0.6s ease 0.95s both",textAlign:"center",width:"100%"}}>
-          <p style={{fontFamily:mono,fontSize:"0.55rem",color:"#8a7f70",letterSpacing:"0.15em",marginBottom:"0.6rem"}}>SHARE YOUR TYPE</p>
-          <div style={{display:"flex",gap:"0.6rem",justifyContent:"center",marginBottom:"0.8rem"}}>
+          <p style={{fontFamily:mono,fontSize:"clamp(0.65rem,2vw,0.75rem)",color:"#a09580",letterSpacing:"0.18em",marginBottom:"0.8rem"}}>SHARE YOUR TYPE</p>
+          <div style={{display:"flex",gap:"0.8rem",justifyContent:"center",marginBottom:"1rem"}}>
             {iconBtn('<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>',()=>window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(siteUrl)}`,"_blank"))}
             {iconBtn('<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>',()=>window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(siteUrl)}&quote=${encodeURIComponent(shareText)}`,"_blank"))}
             {iconBtn('<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>',()=>window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(siteUrl)}`,"_blank"))}
             {iconBtn('<path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>',()=>window.open(`https://reddit.com/submit?url=${encodeURIComponent(siteUrl)}&title=${encodeURIComponent(shareText)}`,"_blank"))}
             {iconBtn('<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>',()=>window.open(`https://wa.me/?text=${encodeURIComponent(`${shareText} ${siteUrl}`)}`,"_blank"))}
           </div>
-          <button onClick={()=>{navigator.clipboard?.writeText(`${shareText} ${siteUrl}`);}} style={{fontFamily:mono,fontSize:"0.55rem",color:"#a09580",background:"rgba(200,169,110,0.06)",border:"1px solid rgba(200,169,110,0.15)",padding:"0.4rem 1rem",cursor:"pointer",borderRadius:20,WebkitTapHighlightColor:"transparent"}}>COPY LINK</button>
+          <button onClick={()=>{navigator.clipboard?.writeText(`${shareText} ${siteUrl}`);}} style={{fontFamily:mono,fontSize:"clamp(0.65rem,2vw,0.75rem)",color:"#c8bfb0",background:"rgba(200,169,110,0.08)",border:"1px solid rgba(200,169,110,0.2)",padding:"0.6rem 1.4rem",cursor:"pointer",borderRadius:24,WebkitTapHighlightColor:"transparent",letterSpacing:"0.06em"}}>COPY LINK</button>
         </div>
 
         {/* Scroll hint */}
@@ -523,38 +523,38 @@ function Results({choices,conflicts,onRestart}){
       {/* === BELOW THE FOLD: Details === */}
       <div style={{width:"100%",maxWidth:560}}>
         {/* Personality card */}
-        <div style={{marginBottom:"2.5rem",padding:"1.8rem",border:"1px solid rgba(200,169,110,0.15)",background:"linear-gradient(135deg,rgba(200,169,110,0.06) 0%,rgba(200,130,50,0.03) 100%)",borderRadius:4}}>
-          <p style={{fontFamily:serif,fontSize:"clamp(0.95rem,2.5vw,1.08rem)",color:"#c8bfb0",lineHeight:1.85,whiteSpace:"pre-wrap"}}>{pri.personality}</p>
+        <div style={{marginBottom:"2.5rem",padding:"clamp(1.2rem,4vw,1.8rem)",border:"1px solid rgba(200,169,110,0.15)",background:"linear-gradient(135deg,rgba(200,169,110,0.06) 0%,rgba(200,130,50,0.03) 100%)",borderRadius:8}}>
+          <p style={{fontFamily:serif,fontSize:"clamp(1.05rem,3.2vw,1.15rem)",color:"#c8bfb0",lineHeight:1.85,whiteSpace:"pre-wrap"}}>{pri.personality}</p>
         </div>
 
         {/* Score boxes */}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"1rem",marginBottom:"2.5rem"}}>
           {[[aCt,"ESTABLISHMENT","#7dcea0","rgba(100,180,120,0.08)"],[bCt,"CHALLENGER","#e0876a","rgba(200,100,80,0.08)"]].map(([n,l,accent,bgc],i)=>(
-            <div key={i} style={{border:`1px solid ${accent}33`,padding:"1.4rem",textAlign:"center",background:bgc,borderRadius:4}}>
-              <div style={{fontFamily:disp,fontSize:"2.8rem",color:"#fff",fontWeight:700}}>{n}</div>
-              <div style={{fontFamily:mono,fontSize:"0.6rem",color:accent,letterSpacing:"0.12em",fontWeight:600}}>{l}</div>
+            <div key={i} style={{border:`1px solid ${accent}33`,padding:"clamp(1rem,3vw,1.4rem)",textAlign:"center",background:bgc,borderRadius:8}}>
+              <div style={{fontFamily:disp,fontSize:"clamp(2.4rem,7vw,3rem)",color:"#fff",fontWeight:700}}>{n}</div>
+              <div style={{fontFamily:mono,fontSize:"clamp(0.65rem,2vw,0.75rem)",color:accent,letterSpacing:"0.12em",fontWeight:600}}>{l}</div>
             </div>
           ))}
         </div>
 
         {/* Value signature */}
         <div style={{marginBottom:"2.5rem"}}>
-          <p style={{fontFamily:mono,fontSize:"0.65rem",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>VALUE SIGNATURE</p>
+          <p style={{fontFamily:mono,fontSize:"clamp(0.7rem,2.2vw,0.8rem)",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>VALUE SIGNATURE</p>
           {tv.map(([k,ct],i)=>(
-            <div key={k} style={{display:"flex",alignItems:"center",gap:"0.6rem",marginBottom:"0.7rem"}}>
-              <span style={{fontFamily:mono,fontSize:"0.6rem",color:"#a09580",width:130,textAlign:"right",flexShrink:0}}>{VL[k]||k}</span>
-              <div style={{flex:1,height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,overflow:"hidden"}}><div style={{height:"100%",width:`${(ct/mx)*100}%`,background:`linear-gradient(90deg,${barColors[i]||gold},${barColors[i]||gold}88)`,borderRadius:4,transition:"width 1.2s cubic-bezier(0.25,0.46,0.45,0.94)"}}/></div>
-              <span style={{fontFamily:mono,fontSize:"0.6rem",color:"#c8bfb0",width:16,fontWeight:600}}>{ct}</span>
+            <div key={k} style={{display:"flex",alignItems:"center",gap:"0.5rem",marginBottom:"0.8rem"}}>
+              <span style={{fontFamily:mono,fontSize:"clamp(0.6rem,1.8vw,0.7rem)",color:"#a09580",width:"clamp(100px,30vw,140px)",textAlign:"right",flexShrink:0}}>{VL[k]||k}</span>
+              <div style={{flex:1,height:10,background:"rgba(255,255,255,0.05)",borderRadius:5,overflow:"hidden"}}><div style={{height:"100%",width:`${(ct/mx)*100}%`,background:`linear-gradient(90deg,${barColors[i]||gold},${barColors[i]||gold}88)`,borderRadius:5,transition:"width 1.2s cubic-bezier(0.25,0.46,0.45,0.94)"}}/></div>
+              <span style={{fontFamily:mono,fontSize:"clamp(0.65rem,2vw,0.75rem)",color:"#c8bfb0",width:20,fontWeight:600}}>{ct}</span>
             </div>
           ))}
         </div>
 
         {/* Archetype mix */}
         <div style={{marginBottom:"2.5rem"}}>
-          <p style={{fontFamily:mono,fontSize:"0.65rem",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>ARCHETYPE MIX</p>
+          <p style={{fontFamily:mono,fontSize:"clamp(0.7rem,2.2vw,0.8rem)",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>ARCHETYPE MIX</p>
           {as.filter(a=>a.score>0).map((a,i)=>(
-            <div key={a.name} style={{display:"flex",alignItems:"center",gap:"0.6rem",marginBottom:"0.6rem"}}>
-              <span style={{fontFamily:mono,fontSize:"0.6rem",color:i===0?"#fff":"#a09580",width:160,textAlign:"right",flexShrink:0,fontWeight:i===0?600:400}}>{a.emoji} {a.name}</span>
+            <div key={a.name} style={{display:"flex",alignItems:"center",gap:"0.5rem",marginBottom:"0.7rem"}}>
+              <span style={{fontFamily:mono,fontSize:"clamp(0.6rem,1.8vw,0.7rem)",color:i===0?"#fff":"#a09580",width:"clamp(120px,35vw,170px)",textAlign:"right",flexShrink:0,fontWeight:i===0?600:400}}>{a.emoji} {a.name}</span>
               <div style={{flex:1,height:i===0?6:3,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}><div style={{height:"100%",width:`${(a.score/(pri.score||1))*100}%`,background:i===0?"linear-gradient(90deg,#e8c97a,#d4a054)":"rgba(200,169,110,0.25)",borderRadius:3,transition:"width 1s"}}/></div>
             </div>
           ))}
@@ -562,13 +562,13 @@ function Results({choices,conflicts,onRestart}){
 
         {/* Case log */}
         <div style={{marginBottom:"2.5rem",paddingTop:"1.5rem"}}>
-          <p style={{fontFamily:mono,fontSize:"0.65rem",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>CASE LOG</p>
+          <p style={{fontFamily:mono,fontSize:"clamp(0.7rem,2.2vw,0.8rem)",color:"#e8c97a",letterSpacing:"0.2em",marginBottom:"1.2rem"}}>CASE LOG</p>
           {choices.map(({cid,side},i)=>{const co=conflicts.find(x=>x.id===cid);return(
-            <div key={cid} style={{display:"flex",gap:"0.8rem",marginBottom:"0.6rem",padding:"0.7rem 1rem",background:"rgba(200,169,110,0.03)",border:"1px solid rgba(200,169,110,0.08)",borderRadius:3}}>
-              <span style={{fontFamily:mono,fontSize:"0.6rem",color:"#e8c97a",fontWeight:600}}>{String(i+1).padStart(2,"0")}</span>
+            <div key={cid} style={{display:"flex",gap:"0.8rem",marginBottom:"0.7rem",padding:"clamp(0.6rem,2vw,0.8rem) clamp(0.8rem,2.5vw,1rem)",background:"rgba(200,169,110,0.03)",border:"1px solid rgba(200,169,110,0.08)",borderRadius:6}}>
+              <span style={{fontFamily:mono,fontSize:"clamp(0.65rem,2vw,0.75rem)",color:"#e8c97a",fontWeight:600}}>{String(i+1).padStart(2,"0")}</span>
               <div>
-                <p style={{fontFamily:serif,fontSize:"0.95rem",color:"#e0d5c5"}}>{co.reveal.split("\u2014")[0].trim()}</p>
-                <p style={{fontFamily:mono,fontSize:"0.55rem",color:"#8a7f70",marginTop:"0.15rem"}}>{co[side].label}</p>
+                <p style={{fontFamily:serif,fontSize:"clamp(1rem,3vw,1.1rem)",color:"#e0d5c5"}}>{co.reveal.split("\u2014")[0].trim()}</p>
+                <p style={{fontFamily:mono,fontSize:"clamp(0.6rem,1.8vw,0.7rem)",color:"#8a7f70",marginTop:"0.2rem"}}>{co[side].label}</p>
               </div>
             </div>
           );})}
@@ -576,12 +576,12 @@ function Results({choices,conflicts,onRestart}){
 
         {/* Download share card */}
         <div style={{textAlign:"center",marginBottom:"2.5rem"}}>
-          <p style={{fontFamily:mono,fontSize:"0.55rem",color:"#8a7f70",letterSpacing:"0.15em",marginBottom:"0.8rem"}}>SAVE YOUR RESULTS</p>
+          <p style={{fontFamily:mono,fontSize:"clamp(0.7rem,2.2vw,0.8rem)",color:"#8a7f70",letterSpacing:"0.15em",marginBottom:"1rem"}}>SAVE YOUR RESULTS</p>
           <ShareCard arch={pri} sec={sec} topV={tv} aCt={aCt} bCt={bCt} total={choices.length}/>
         </div>
 
         <div style={{textAlign:"center",marginBottom:"2rem"}}>
-          <button onClick={onRestart} style={{fontFamily:mono,fontSize:"0.65rem",color:"#a09580",background:"transparent",border:"1px solid rgba(200,169,110,0.2)",padding:"0.7rem 1.5rem",cursor:"pointer",borderRadius:3,WebkitTapHighlightColor:"transparent"}}>RETAKE</button>
+          <button onClick={onRestart} style={{fontFamily:mono,fontSize:"clamp(0.75rem,2.2vw,0.85rem)",color:"#a09580",background:"transparent",border:"1px solid rgba(200,169,110,0.2)",padding:"0.8rem 2rem",cursor:"pointer",borderRadius:6,WebkitTapHighlightColor:"transparent",letterSpacing:"0.06em"}}>RETAKE</button>
         </div>
       </div>
 
